@@ -4,7 +4,7 @@
 @inject NavigationManager Navigation
 
 <div class="p-6">
-
+    <img src="@song.FilePath" alt="image">
     <h1 class="text-xl font-semibold mb-2" style ="color:white">Title: @song.Title</h1>
     <p class="text-xl font-semibold mb-2" style ="color:white">Artist: @song.Artist</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Album: @song.Artist</p>
@@ -20,12 +20,11 @@
     public string Id { get; set; }
 
     private Song song;
-    protected override async void OnParametersSet()
+
+    protected override async Task OnInitializedAsync()
     {
         var songs = await Http.GetFromJsonAsync<List<Song>>("api/songs");
         song = songs.FirstOrDefault(s => s.Id == new Guid(Id));
-        Console.WriteLine(song.Title);
-        Console.WriteLine(song.Artist);
     }
 
 }
