@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace music_manager_start.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class DemoMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,8 +35,13 @@ namespace music_manager_start.Data.Migrations
                 columns: new[] { "Id", "Album", "Artist", "FilePath", "Genre", "Rating", "Title" },
                 values: new object[,]
                 {
-                    { new Guid("2a76a0b1-b3e1-4ff0-9aa5-5f5e4c81bc45"), "Canyon", "Pony Bradshaw", "/images/pb.png", "Folk", 10, "Notes on a River Town" },
-                    { new Guid("6f47c84f-4a7d-4e83-8b8f-1829f0eafca3"), "Spiritbox", "Spiritbox", "/images/pb.png", "Metal", 10, "Circle With Me" }
+                    { new Guid("22aa6f84-06d8-4a0e-bdad-3000b35b5b5f"), "Twelve Carat Toothache", "Post Malone", "/images/pm.png", "Hip Hop", 10, "Something Real" },
+                    { new Guid("42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e"), "When We All Fall Asleep, Where Do We Go?", "Billie Eilish", "/images/be1.png", "Pop", 10, "When the Party's Over" },
+                    { new Guid("5d7686e9-b672-43d5-aec2-4bb3ffd9b665"), "When We All Fall Asleep, Where Do We Go?", "Billie Eilish", "/images/be1.png", "Pop", 10, "Bad Guy" },
+                    { new Guid("6134ece0-f465-4102-b5e6-54afaebc1c19"), "When We All Fall Asleep, Where Do We Go?", "Billie Eilish", "/images/be1.png", "Pop", 10, "My Strange Addiction" },
+                    { new Guid("b7cc1c82-77e2-40d0-8bc2-d7e05962c0e3"), "The Great Escape", "French Cassettes", "/images/pb.png", "Indie", 10, "Utah" },
+                    { new Guid("ba62c87f-5a86-4f9b-85b5-16ba4ad39e30"), "Hit Me Hard And Soft", "Billie Eilish", "/images/be2.png", "Pop", 10, "Birds Of A Feather" },
+                    { new Guid("dd906bcb-12b7-4cb1-9231-603d4f544390"), "Hit Me Hard And Soft", "Billie Eilish", "/images/be2.png", "Pop", 10, "The Greatest" }
                 });
         }
 
