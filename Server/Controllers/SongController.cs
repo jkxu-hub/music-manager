@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using music_manager_starter.Data;
 using music_manager_starter.Data.Models;
 using System;
+using Serilog;
 
 namespace music_manager_starter.Server.Controllers
 {
@@ -27,16 +28,28 @@ namespace music_manager_starter.Server.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Song>> GetSongDetails(string? id)
         {
-            Console.WriteLine("My Id: " + id);
+            Log.Information("GetSongDetails: {@id}", id); 
             if (id == null)
             {
+                Log.Error("Song id is null for: {@id}", id); 
                 return NotFound();
             }
 
-            var song = await _context.Songs
+            Song song = null;
+
+            try
+            {
+                song = await _context.Songs
                 .FirstOrDefaultAsync(m => m.Id == new Guid(id));
+            }catch (Exception ex)
+            {
+                Log.Error(ex, "Malformed ID: {@id}", id);
+
+            }
+
             if (song == null)
             {
+                Log.Error("Song not found for ID: {@id}", id); 
                 return NotFound();
             }
 
@@ -47,17 +60,18 @@ namespace music_manager_starter.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Song>> PostSong(Song song)
         {
+            Log.Information("Post Request Song: {@song}", song); 
             if (song == null)
             {
+                Log.Error("Song was null for: {@song}", song); 
                 return BadRequest("Song cannot be null.");
             }
 
             if(song.FileBytes.Length == 0){
+                Log.Error("Song was not uploaded for: {@song}", song); 
                 return BadRequest("No File Uploaded");
             }
 
-            Console.WriteLine("Extension: " + song.FileExtension);
-            
             
             string uniqueFileName = GenerateImageName(song.FileExtension);
             string DBPath = "/images/" + uniqueFileName;

@@ -2,11 +2,29 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using music_manager_starter.Data;
 using System.Security.AccessControl;
+using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Json;
+
+//Adding the logger configuration
+Log.Logger = new LoggerConfiguration()
+                // add console as logging target
+                .WriteTo.Console()
+                // add a logging target for warnings and higher severity  logs
+                // structured in JSON format
+                .WriteTo.File(new JsonFormatter(),
+                                "important.json",
+                                restrictedToMinimumLevel: LogEventLevel.Warning)
+                // add a rolling file for all logs
+                .WriteTo.File("all-.logs",
+                                rollingInterval: RollingInterval.Day)
+                // set default minimum level
+                .MinimumLevel.Debug()
+                .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddDbContext<DataDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
 
