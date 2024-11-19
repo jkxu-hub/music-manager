@@ -7,7 +7,7 @@ using music_manager_starter.Data;
 
 #nullable disable
 
-namespace music_manager_starter.Data.Migrations
+namespace music_manager_start.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
     partial class DataDbContextModelSnapshot : ModelSnapshot
@@ -31,9 +31,16 @@ namespace music_manager_starter.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Genre")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -46,42 +53,12 @@ namespace music_manager_starter.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6f47c84f-4a7d-4e83-8b8f-1829f0eafca3"),
-                            Album = "Spiritbox",
-                            Artist = "Spiritbox",
-                            Genre = "Metal",
-                            Title = "Circle With Me"
-                        },
-                        new
-                        {
-                            Id = new Guid("2a76a0b1-b3e1-4ff0-9aa5-5f5e4c81bc45"),
-                            Album = "Canyon",
-                            Artist = "Pony Bradshaw",
-                            Genre = "Folk",
-                            Title = "Notes on a River Town"
-                        },
-                        new
-                        {
-                            Id = new Guid("fa38a0ed-4f00-48e2-b9c5-5d68f9c0ef41"),
-                            Album = "Single",
-                            Artist = "Morgan Allen",
-                            Genre = "Country",
-                            Title = "Flower Shops"
-                        },
-                        new
-                        {
-                            Id = new Guid("d94aa1d4-75ee-4f7a-a89f-f77de7050c8d"),
-                            Album = "I Love You.",
-                            Artist = "The Neighbourhood",
-                            Genre = "Alternative",
-                            Title = "Sweater Weather"
-                        },
-                        new
-                        {
                             Id = new Guid("42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e"),
                             Album = "When We All Fall Asleep, Where Do We Go?",
                             Artist = "Billie Eilish",
+                            FilePath = "/images/be1.png",
                             Genre = "Pop",
+                            Rating = 10,
                             Title = "When the Party's Over"
                         },
                         new
@@ -89,7 +66,9 @@ namespace music_manager_starter.Data.Migrations
                             Id = new Guid("b7cc1c82-77e2-40d0-8bc2-d7e05962c0e3"),
                             Album = "The Great Escape",
                             Artist = "French Cassettes",
+                            FilePath = "/images/pb.png",
                             Genre = "Indie",
+                            Rating = 10,
                             Title = "Utah"
                         },
                         new
@@ -97,8 +76,50 @@ namespace music_manager_starter.Data.Migrations
                             Id = new Guid("22aa6f84-06d8-4a0e-bdad-3000b35b5b5f"),
                             Album = "Twelve Carat Toothache",
                             Artist = "Post Malone",
+                            FilePath = "/images/pm.png",
                             Genre = "Hip Hop",
+                            Rating = 10,
                             Title = "Something Real"
+                        },
+                        new
+                        {
+                            Id = new Guid("5d7686e9-b672-43d5-aec2-4bb3ffd9b665"),
+                            Album = "When We All Fall Asleep, Where Do We Go?",
+                            Artist = "Billie Eilish",
+                            FilePath = "/images/be1.png",
+                            Genre = "Pop",
+                            Rating = 10,
+                            Title = "Bad Guy"
+                        },
+                        new
+                        {
+                            Id = new Guid("6134ece0-f465-4102-b5e6-54afaebc1c19"),
+                            Album = "When We All Fall Asleep, Where Do We Go?",
+                            Artist = "Billie Eilish",
+                            FilePath = "/images/be1.png",
+                            Genre = "Pop",
+                            Rating = 10,
+                            Title = "My Strange Addiction"
+                        },
+                        new
+                        {
+                            Id = new Guid("ba62c87f-5a86-4f9b-85b5-16ba4ad39e30"),
+                            Album = "Hit Me Hard And Soft",
+                            Artist = "Billie Eilish",
+                            FilePath = "/images/be2.png",
+                            Genre = "Pop",
+                            Rating = 10,
+                            Title = "Birds Of A Feather"
+                        },
+                        new
+                        {
+                            Id = new Guid("dd906bcb-12b7-4cb1-9231-603d4f544390"),
+                            Album = "Hit Me Hard And Soft",
+                            Artist = "Billie Eilish",
+                            FilePath = "/images/be2.png",
+                            Genre = "Pop",
+                            Rating = 10,
+                            Title = "The Greatest"
                         });
                 });
 #pragma warning restore 612, 618

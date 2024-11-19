@@ -2,25 +2,47 @@
 @using music_manager_starter.Shared
 
 @inject HttpClient Http
+@inject NavigationManager Navigation
 
 @code {
     private List<Song> songs;
+    private string searchTerm = string.Empty;
+
+    //gets a sequence of songs whose title, artist, or ablum matches the search term
+    //blazor re-renders whenever search term is updated because of bind
+    private IEnumerable<Song> FilteredSongs => string.IsNullOrWhiteSpace(searchTerm) ? songs : songs.Where
+        (s => s.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)||
+            s.Artist.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)||
+            s.Album.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)
+        );
+
 
     protected override async Task OnInitializedAsync()
     {
         songs = await Http.GetFromJsonAsync<List<Song>>("api/songs");
     }
+    private void NavigateToSong(string songId)
+    {
+        //Console.WriteLine("Hello");
+        Navigation.NavigateTo($"/songdetails/{songId}");
+    }
 }
+
 
 <div class="p-0 min-h-screen bg-pattern flex flex-col items-center justify-center">
     <h2 class="text-3xl font-bold text-white mb-8 text-center">Song Library</h2>
+    <div class="p-6">
+        <input type="text" placeholder="Search..."  @bind="searchTerm" class=" px-5 py-3 rounded-full focus:outline-none">
+    </div>
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         @if (songs != null && songs.Count > 0)
         {
-            @foreach (var song in songs)
+            @foreach (var song in FilteredSongs)
             {
-                <div class="glass p-6 border border-gray-300 rounded-lg text-white transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer">
-                    <h3 class="text-xl font-semibold mb-2">@song.Title</h3>
+                <div class="glass p-6 border border-gray-300 rounded-lg text-white transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer" @onclick="() => NavigateToSong(song.Id.ToString())">
+                    <img src="@song.FilePath" alt="image">
+                    <h3 class="text-xl font-semibold mb-2">@song.Title </h3>
                     <p class="text-md">Artist: <span class="font-light">@song.Artist</span></p>
 
                 </div>
@@ -42,7 +64,6 @@
     }
 
  
-
     .glass {
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px); 
@@ -51,15 +72,15 @@
         overflow: hidden; 
     }
 
-        .glass:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            pointer-events: none; 
-        }
+    .glass:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        pointer-events: none; 
+    }
 </style>

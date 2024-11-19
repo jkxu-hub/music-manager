@@ -1,0 +1,30 @@
+@page "/songdetails/{Id}"
+@using music_manager_starter.Shared
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<div class="p-6">
+    <img src="@song.FilePath" alt="image">
+    <h1 class="text-xl font-semibold mb-2" style ="color:white">Title: @song.Title</h1>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Artist: @song.Artist</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Album: @song.Album</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Genre: @song.Genre</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Rating: @song.Rating</p>
+
+</div>
+
+
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private Song song;
+
+    protected override async Task OnInitializedAsync()
+    {
+        song = await Http.GetFromJsonAsync<Song>("api/songs/" + Id);
+
+    }
+
+}
