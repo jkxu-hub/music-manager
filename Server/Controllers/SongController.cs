@@ -23,25 +23,26 @@ namespace music_manager_starter.Server.Controllers
         {
             return await _context.Songs.ToListAsync();
         }
-        /*
-        
-        public async Task<IActionResult> GetSongDetails(int? id)
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Song>> GetSongDetails(string? id)
         {
+            Console.WriteLine("My Id: " + id);
             if (id == null)
             {
                 return NotFound();
             }
 
-            var fruit = await _context.Fruit
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (fruit == null)
+            var song = await _context.Songs
+                .FirstOrDefaultAsync(m => m.Id == new Guid(id));
+            if (song == null)
             {
                 return NotFound();
             }
 
-            return View(fruit);
+            return song;
         }
-        */
+
 
         [HttpPost]
         public async Task<ActionResult<Song>> PostSong(Song song)

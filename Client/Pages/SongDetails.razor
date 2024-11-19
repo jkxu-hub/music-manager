@@ -23,8 +23,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var songs = await Http.GetFromJsonAsync<List<Song>>("api/songs");
-        song = songs.FirstOrDefault(s => s.Id == new Guid(Id));
+        song = await Http.GetFromJsonAsync<Song>("api/songs/" + Id);
+
     }
 
 }
