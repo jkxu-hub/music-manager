@@ -29,6 +29,16 @@
             <InputText @bind-Value="newSong.Genre" class="mt-1 block w-full p-2 border rounded" />
         </div>
 
+        <div class="mb-4">
+            <label class="block text-gray-200">Rating</label>
+            <InputNumber @bind-Value="newSong.Rating" class="mt-1 block w-full p-2 border rounded" />
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-200">Add Cover Art</label>
+            <InputFile OnChange="@UploadFile" />
+        </div>
+
         <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded">Add Song</button>
     </EditForm>
 
@@ -41,18 +51,38 @@
 @code {
     private Song newSong = new Song();
     private string message;
+    private byte[] fileBytes;
 
     private async Task HandleValidSubmit()
     {
+
+        newSong.FilePath = "/images/pb.png";
+        newSong.FileBytes = fileBytes;
+        //Console.WriteLine(newSong.FilePath);
+        //Console.WriteLine(newSong.FileBytes.Length);
+        
+    
         var response = await Http.PostAsJsonAsync("api/songs", newSong);
         if (response.IsSuccessStatusCode)
         {
             message = "Song added successfully!";
+            fileBytes = [];
             newSong = new Song(); 
         }
         else
         {
             message = "Error adding song. Please try again.";
         }
+    }
+    private async Task UploadFile(InputFileChangeEventArgs e)
+    {
+        //string fileExtension = Path.GetExtension(e.File.Name);
+        Console.WriteLine("loadingFile");
+        message = "loading file";
+
+        MemoryStream ms = new MemoryStream();
+        await e.File.OpenReadStream().CopyToAsync(ms);
+        fileBytes = ms.ToArray();
+        message = "file successfully loaded";
     }
 }
