@@ -27,7 +27,6 @@ namespace music_manager_starter.Server.Controllers
         [HttpPost]
         public async Task<ActionResult<Song>> PostSong(Song song)
         {
-            //Console.WriteLine("Controller: " + song.FileBytes.Length.ToString());
             if (song == null)
             {
                 return BadRequest("Song cannot be null.");
@@ -37,20 +36,16 @@ namespace music_manager_starter.Server.Controllers
                 return BadRequest("No File Uploaded");
             }
 
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            string curr_directory = Directory.GetCurrentDirectory();
-            int index = curr_directory.LastIndexOf("\\");
-            string imageDirectory;
-            imageDirectory = curr_directory.Substring(0, index);
-            imageDirectory = imageDirectory + "\\client\\wwwroot\\images\\";
-            Console.WriteLine(imageDirectory);
+            Console.WriteLine("Extension: " + song.FileExtension);
             
             
-            string uniqueFileName = Guid.NewGuid().ToString() + ".png";
+            string uniqueFileName = GenerateImageName(song.FileExtension);
             string DBPath = "/images/" + uniqueFileName;
+
+            //updates file path for DB storage
             song.FilePath = DBPath;
 
-            string savePath = imageDirectory + uniqueFileName;
+            string savePath = GetImageDirectory() + uniqueFileName;
 
             using (var stream = new FileStream(savePath, FileMode.Create))
             {
@@ -62,5 +57,22 @@ namespace music_manager_starter.Server.Controllers
 
             return Ok();
         }
+
+        [NonAction]
+        private static string GetImageDirectory(){
+            string curr_directory = Directory.GetCurrentDirectory();
+            int index = curr_directory.LastIndexOf("\\");
+
+            string imageDirectory = curr_directory.Substring(0, index);
+            imageDirectory = imageDirectory + "\\client\\wwwroot\\images\\";
+            return imageDirectory;
+        }
+
+        [NonAction]
+        private static string GenerateImageName(string extension){
+            return Guid.NewGuid().ToString() + extension;
+        }
+
+        
     }
 }
