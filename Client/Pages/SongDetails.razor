@@ -1,31 +1,31 @@
-@page "/songdetails/{Id:string}"
-
+@page "/songdetails/{Id}"
 @using music_manager_starter.Shared
-
 @inject HttpClient Http
-
 @inject NavigationManager Navigation
 
-<h1>@song?.Title</h1>
-<p>@song?.Artist</p>
+<div class="p-6">
 
-<button @onclick="GoBack">Back to Homepage</button>
+    <h1 class="text-xl font-semibold mb-2" style ="color:white">Title: @song.Title</h1>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Artist: @song.Artist</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Album: @song.Artist</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Genre: @song.Artist</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Rating: @song.Artist</p>
+
+</div>
+
+
 
 @code {
     [Parameter]
     public string Id { get; set; }
 
     private Song song;
-
-
     protected override async void OnParametersSet()
     {
         var songs = await Http.GetFromJsonAsync<List<Song>>("api/songs");
         song = songs.FirstOrDefault(s => s.Id == new Guid(Id));
+        Console.WriteLine(song.Title);
+        Console.WriteLine(song.Artist);
     }
 
-    private void GoBack()
-    {
-        Navigation.NavigateTo("/");
-    }
 }
