@@ -19,5 +19,7 @@ namespace music_manager_starter.Data.Models
 
         [NotMapped]
         public byte[] FileBytes{ get; set; }
+        [NotMapped]
+        public string FileExtension{ get; set; }
     }
 }

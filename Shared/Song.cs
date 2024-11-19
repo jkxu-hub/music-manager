@@ -20,5 +20,7 @@ namespace music_manager_starter.Shared
 
         [NotMapped]
         public byte[] FileBytes{ get; set; }
+        [NotMapped]
+        public string FileExtension{ get; set; }
     }
 }

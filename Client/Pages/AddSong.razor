@@ -53,14 +53,14 @@
     private string message;
     private byte[] fileBytes;
 
+    //max upload image size is 10 megabytes
+    long maxFileSize =  1024L * 10000L;
+
     private async Task HandleValidSubmit()
     {
 
         newSong.FilePath = "/images/pb.png";
         newSong.FileBytes = fileBytes;
-        //Console.WriteLine(newSong.FilePath);
-        //Console.WriteLine(newSong.FileBytes.Length);
-        
     
         var response = await Http.PostAsJsonAsync("api/songs", newSong);
         if (response.IsSuccessStatusCode)
@@ -76,16 +76,30 @@
     }
     private async Task UploadFile(InputFileChangeEventArgs e)
     {
-        //string fileExtension = Path.GetExtension(e.File.Name);
-        Console.WriteLine("loadingFile");
-        Console.WriteLine("orange");
-        Console.WriteLine("orange");
-        Console.WriteLine("orange");
-        message = "loading file";
+        string fileExtension = Path.GetExtension(e.File.Name);
 
-        MemoryStream ms = new MemoryStream();
-        await e.File.OpenReadStream().CopyToAsync(ms);
-        fileBytes = ms.ToArray();
-        message = "file successfully loaded";
+        if (!fileExtension.Equals(".png", StringComparison.OrdinalIgnoreCase) && 
+            !fileExtension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) && 
+            !fileExtension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) && 
+            !fileExtension.Equals(".webm", StringComparison.OrdinalIgnoreCase) 
+            )
+        {
+            message = "Please upload a png, jpg, or webp file.";
+        }
+        else
+        {
+            Console.WriteLine("loadingFile");
+
+            message = "loading file";
+
+            MemoryStream ms = new MemoryStream();
+            await e.File.OpenReadStream(maxAllowedSize: maxFileSize).CopyToAsync(ms);
+            fileBytes = ms.ToArray();
+
+            newSong.FileExtension = fileExtension;
+            message = "file successfully loaded";
+
+        }
+
     }
 }
