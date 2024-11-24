@@ -11,6 +11,10 @@
     <p class="text-xl font-semibold mb-2" style ="color:white">Genre: @song.Genre</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Rating: @song.Rating</p>
 
+    <EditForm Model="rating" OnValidSubmit="HandleAddRating">
+
+    </EditForm>
+
 </div>
 
 
@@ -21,10 +25,18 @@
 
     private Song song;
 
+    private Song rating = new Song();
+
     protected override async Task OnInitializedAsync()
     {
         song = await Http.GetFromJsonAsync<Song>("api/songs/" + Id);
 
+    }
+
+        private async Task HandleAddRating()
+    {
+        //Add song id
+        //Add Whatever rating the user supplied
     }
 
 }
