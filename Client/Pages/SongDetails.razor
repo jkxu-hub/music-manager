@@ -9,10 +9,9 @@
     <p class="text-xl font-semibold mb-2" style ="color:white">Artist: @song.Artist</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Album: @song.Album</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Genre: @song.Genre</p>
-    <p class="text-xl font-semibold mb-2" style ="color:white">Rating: @song.Rating</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Average Rating: @averageRating</p>
 
     <EditForm Model="rating" OnValidSubmit="HandleAddRating">
-
     </EditForm>
 
 </div>
@@ -25,18 +24,25 @@
 
     private Song song;
 
-    private Song rating = new Song();
+    private Rating rating = new Rating();
+    private double averageRating = 0.0;
 
     protected override async Task OnInitializedAsync()
     {
         song = await Http.GetFromJsonAsync<Song>("api/songs/" + Id);
+        await GetAverageRating();
 
     }
 
-        private async Task HandleAddRating()
+    private async Task HandleAddRating()
     {
         //Add song id
         //Add Whatever rating the user supplied
+    }
+
+    private async Task GetAverageRating()
+    {
+        averageRating = await Http.GetFromJsonAsync<double>("api/rating/" + Id);
     }
 
 }

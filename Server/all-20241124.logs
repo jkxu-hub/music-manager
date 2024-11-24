@@ -1,0 +1,65 @@
+2024-11-24 15:44:38.121 -05:00 [INF] GetSongDetails: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 15:45:45.378 -05:00 [INF] GetSongDetails: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 15:45:45.562 -05:00 [INF] GetAverageRating: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 15:45:49.840 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:45:49.858 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:46:37.366 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:46:37.542 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:46:42.025 -05:00 [INF] GetSongDetails: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 15:46:42.044 -05:00 [INF] GetAverageRating: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 15:46:48.275 -05:00 [INF] GetSongDetails: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 15:46:48.342 -05:00 [INF] GetAverageRating: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 15:47:25.239 -05:00 [INF] GetSongDetails: 6134ece0-f465-4102-b5e6-54afaebc1c19
+2024-11-24 15:47:25.560 -05:00 [INF] GetAverageRating: 6134ece0-f465-4102-b5e6-54afaebc1c19
+2024-11-24 15:50:13.402 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:50:13.714 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:51:02.235 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 15:51:02.594 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 16:31:42.134 -05:00 [INF] GetSongDetails: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:31:42.478 -05:00 [INF] GetAverageRating: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:46:36.406 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 16:46:36.915 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 16:46:41.455 -05:00 [INF] GetSongDetails: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-24 16:46:41.513 -05:00 [INF] GetAverageRating: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-24 16:46:45.115 -05:00 [INF] GetSongDetails: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:46:45.163 -05:00 [INF] GetAverageRating: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:46:48.764 -05:00 [INF] GetSongDetails: 6134ece0-f465-4102-b5e6-54afaebc1c19
+2024-11-24 16:46:48.782 -05:00 [INF] GetAverageRating: 6134ece0-f465-4102-b5e6-54afaebc1c19
+2024-11-24 16:47:13.782 -05:00 [INF] GetSongDetails: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 16:47:13.830 -05:00 [INF] GetAverageRating: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 16:49:53.317 -05:00 [INF] GetSongDetails: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-24 16:49:53.780 -05:00 [INF] GetAverageRating: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-24 16:50:39.410 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":30,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 16:50:49.323 -05:00 [INF] GetSongDetails: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:50:49.462 -05:00 [INF] GetAverageRating: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:50:56.342 -05:00 [INF] GetSongDetails: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:50:56.389 -05:00 [INF] GetAverageRating: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:51:25.706 -05:00 [INF] GetSongDetails: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:51:25.755 -05:00 [INF] GetAverageRating: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:51:29.765 -05:00 [INF] GetSongDetails: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 16:51:29.804 -05:00 [INF] GetAverageRating: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-24 16:51:37.315 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 16:51:37.357 -05:00 [INF] GetAverageRating: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-24 16:51:57.826 -05:00 [INF] GetSongDetails: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:51:57.870 -05:00 [INF] GetAverageRating: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:52:09.529 -05:00 [INF] GetSongDetails: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:52:09.559 -05:00 [INF] GetAverageRating: 5d7686e9-b672-43d5-aec2-4bb3ffd9b665
+2024-11-24 16:52:14.841 -05:00 [INF] GetSongDetails: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 16:52:14.883 -05:00 [INF] GetAverageRating: ff1097f2-b3ce-4b71-b98e-bc4efb06a32b
+2024-11-24 17:04:01.316 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":10,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:16:55.405 -05:00 [INF] GetSongDetails: 689bdd52-8279-4c70-9987-70af160b6d09
+2024-11-24 17:16:55.765 -05:00 [INF] GetAverageRating: 689bdd52-8279-4c70-9987-70af160b6d09
+2024-11-24 17:17:42.243 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":9,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:17:45.017 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":9,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:17:51.181 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":9,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:18:10.684 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":9,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:18:11.569 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":9,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:20:09.816 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":8,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:20:10.628 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"hello","Artist":"hello","Album":"hello","Genre":"hello","Rating":8,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (289031 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:20:17.014 -05:00 [INF] GetSongDetails: 39d2ff00-cfd8-4372-a94f-99219e5a3345
+2024-11-24 17:20:17.239 -05:00 [INF] GetAverageRating: 39d2ff00-cfd8-4372-a94f-99219e5a3345
+2024-11-24 17:20:21.897 -05:00 [INF] GetSongDetails: d4d6b401-05f8-48a0-8941-d72c83f28406
+2024-11-24 17:20:21.919 -05:00 [INF] GetAverageRating: d4d6b401-05f8-48a0-8941-d72c83f28406
+2024-11-24 17:20:55.958 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"ORANge","Artist":"orange","Album":"orange","Genre":"orange","Rating":5,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (447275 bytes)","FileExtension":".png","$type":"Song"}
+2024-11-24 17:20:59.256 -05:00 [INF] GetSongDetails: 15090956-a78c-4cd9-a83d-cdef2f9e9fd6
+2024-11-24 17:20:59.278 -05:00 [INF] GetAverageRating: 15090956-a78c-4cd9-a83d-cdef2f9e9fd6

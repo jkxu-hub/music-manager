@@ -17,6 +17,7 @@ namespace music_manager_starter.Data.Models
         public string Genre { get; set; }
 
         [NotMapped]
+        [Range(1, 10, ErrorMessage = "The rating must be between 1 and 10.")]
         public int Rating { get; set; }
         public string FilePath{ get; set; }
 
