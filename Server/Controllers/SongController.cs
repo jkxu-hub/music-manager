@@ -89,6 +89,16 @@ namespace music_manager_starter.Server.Controllers
             _context.Songs.Add(song);
             await _context.SaveChangesAsync();
 
+            //add rating as an entry to the table
+            //foreign key for ratings
+            //turn this into a string and then add to rating table
+            Rating rating = new Rating();
+            rating.SongId = song.Id.ToString(); 
+            rating.rating = song.Rating;
+            _context.Ratings.Add(rating);
+
+            await _context.SaveChangesAsync();
+
             return Ok();
         }
 

@@ -4,27 +4,91 @@
 @inject NavigationManager Navigation
 
 <div class="p-6">
-    <img src="@song.FilePath" alt="image">
+    <div class="container">
+        
+    </div>
+    <img src="@song.FilePath" alt="image" class="cover-art">
     <h1 class="text-xl font-semibold mb-2" style ="color:white">Title: @song.Title</h1>
     <p class="text-xl font-semibold mb-2" style ="color:white">Artist: @song.Artist</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Album: @song.Album</p>
     <p class="text-xl font-semibold mb-2" style ="color:white">Genre: @song.Genre</p>
-    <p class="text-xl font-semibold mb-2" style ="color:white">Rating: @song.Rating</p>
+    <p class="text-xl font-semibold mb-2" style ="color:white">Average Rating: @averageRating</p>
+
+    @if (message != null)
+    {
+        <p class="mt-4 text-green-500">@message</p>
+    }
+    <EditForm Model="rating" OnValidSubmit="HandleAddRating">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="mb-4">
+            <label class="text-gray-200" style ="color:white">Your Rating:</label>
+            <InputNumber @bind-Value="rating.rating" class="mt-1 block w-full p-2 border rounded" />
+            <span asp-validation-for="rating" ></span>
+        </div>
+        <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded">Add Rating</button>
+    </EditForm>
+
+
 
 </div>
 
+<style>
+    .container{
+        width: 300px;
+    }
+    .validation-errors {
+        color: red;
+        font-weight: bold;
+    }
+    .cover-art{
+
+        max-width: 300px;
+    }
+
+</style>
 
 
 @code {
     [Parameter]
     public string Id { get; set; }
-
     private Song song;
+    private Rating rating = new Rating();
+    private double averageRating = 0.0;
+    private string message;
 
     protected override async Task OnInitializedAsync()
     {
         song = await Http.GetFromJsonAsync<Song>("api/songs/" + Id);
+        await GetAverageRating();
 
+    }
+
+    private async Task HandleAddRating()
+    {
+        //Add song id
+        //Add Whatever rating the user supplied
+        rating.SongId = Id;
+
+        var response = await Http.PostAsJsonAsync("api/rating", rating);
+        if (response.IsSuccessStatusCode)
+        {
+            message = "Rating added successfully!";
+            await GetAverageRating();
+            rating = new Rating(); 
+        }
+        else
+        {
+            message = "Error adding rating. Please try again.";
+        }
+    }
+
+    private async Task GetAverageRating()
+    {
+        averageRating = await Http.GetFromJsonAsync<double>("api/rating/" + Id);
+        
+        //Truncate to only show two decimal points
+        averageRating = Math.Truncate(100 * averageRating) / 100;
     }
 
 }
