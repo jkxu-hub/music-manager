@@ -31,7 +31,22 @@ namespace music_manager_starter.Server.Controllers
             return _context.Ratings
             .Where(r => r.SongId == id)
             .Average(r => r.rating);
+        }
 
+        [HttpPost]
+        public async Task<ActionResult<Rating>> PostRating(Rating songRating)
+        {
+            Log.Information("Post Request Rating: {@rating}", songRating); 
+            if (songRating == null)
+            {
+                Log.Error("Rating was null for: {@rating}", songRating); 
+                return BadRequest("Rating cannot be null.");
+            }
+
+            _context.Ratings.Add(songRating);
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
   
