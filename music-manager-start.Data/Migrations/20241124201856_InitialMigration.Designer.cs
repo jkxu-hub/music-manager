@@ -11,14 +11,82 @@ using music_manager_starter.Data;
 namespace music_manager_start.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20241119214529_DemoMigration")]
-    partial class DemoMigration
+    [Migration("20241124201856_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
+
+            modelBuilder.Entity("music_manager_starter.Data.Models.Rating", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SongId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ratings");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d228aaad-0923-4ba6-8797-4f1ddedbc78f"),
+                            SongId = "42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e",
+                            rating = 10
+                        },
+                        new
+                        {
+                            Id = new Guid("8fd2d752-e973-46d7-9ec2-088ef7b18f19"),
+                            SongId = "b7cc1c82-77e2-40d0-8bc2-d7e05962c0e3",
+                            rating = 9
+                        },
+                        new
+                        {
+                            Id = new Guid("7ca7cf3d-811c-419f-8cb3-f77f0ad21982"),
+                            SongId = "22aa6f84-06d8-4a0e-bdad-3000b35b5b5f",
+                            rating = 8
+                        },
+                        new
+                        {
+                            Id = new Guid("e4719187-9084-4a4b-a622-159c06cfe2eb"),
+                            SongId = "5d7686e9-b672-43d5-aec2-4bb3ffd9b665",
+                            rating = 7
+                        },
+                        new
+                        {
+                            Id = new Guid("3f640e8e-2517-4a2a-86ae-527279888015"),
+                            SongId = "6134ece0-f465-4102-b5e6-54afaebc1c19",
+                            rating = 6
+                        },
+                        new
+                        {
+                            Id = new Guid("2051fcc5-c41f-46d5-87d3-2520c151df2a"),
+                            SongId = "ba62c87f-5a86-4f9b-85b5-16ba4ad39e30",
+                            rating = 5
+                        },
+                        new
+                        {
+                            Id = new Guid("244c3b6c-ff3a-4b50-bda0-432116176d17"),
+                            SongId = "dd906bcb-12b7-4cb1-9231-603d4f544390",
+                            rating = 4
+                        },
+                        new
+                        {
+                            Id = new Guid("1279430c-d55a-4a6e-a1ac-b12da285bdfe"),
+                            SongId = "dd906bcb-12b7-4cb1-9231-603d4f544390",
+                            rating = 2
+                        });
+                });
 
             modelBuilder.Entity("music_manager_starter.Data.Models.Song", b =>
                 {
@@ -42,9 +110,6 @@ namespace music_manager_start.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -59,9 +124,8 @@ namespace music_manager_start.Data.Migrations
                             Id = new Guid("42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e"),
                             Album = "When We All Fall Asleep, Where Do We Go?",
                             Artist = "Billie Eilish",
-                            FilePath = "/images/be1.png",
+                            FilePath = "/images/be1.jpg",
                             Genre = "Pop",
-                            Rating = 10,
                             Title = "When the Party's Over"
                         },
                         new
@@ -69,9 +133,8 @@ namespace music_manager_start.Data.Migrations
                             Id = new Guid("b7cc1c82-77e2-40d0-8bc2-d7e05962c0e3"),
                             Album = "The Great Escape",
                             Artist = "French Cassettes",
-                            FilePath = "/images/pb.png",
+                            FilePath = "/images/fc.jpg",
                             Genre = "Indie",
-                            Rating = 10,
                             Title = "Utah"
                         },
                         new
@@ -81,7 +144,6 @@ namespace music_manager_start.Data.Migrations
                             Artist = "Post Malone",
                             FilePath = "/images/pm.png",
                             Genre = "Hip Hop",
-                            Rating = 10,
                             Title = "Something Real"
                         },
                         new
@@ -89,9 +151,8 @@ namespace music_manager_start.Data.Migrations
                             Id = new Guid("5d7686e9-b672-43d5-aec2-4bb3ffd9b665"),
                             Album = "When We All Fall Asleep, Where Do We Go?",
                             Artist = "Billie Eilish",
-                            FilePath = "/images/be1.png",
+                            FilePath = "/images/be1.jpg",
                             Genre = "Pop",
-                            Rating = 10,
                             Title = "Bad Guy"
                         },
                         new
@@ -99,9 +160,8 @@ namespace music_manager_start.Data.Migrations
                             Id = new Guid("6134ece0-f465-4102-b5e6-54afaebc1c19"),
                             Album = "When We All Fall Asleep, Where Do We Go?",
                             Artist = "Billie Eilish",
-                            FilePath = "/images/be1.png",
+                            FilePath = "/images/be1.jpg",
                             Genre = "Pop",
-                            Rating = 10,
                             Title = "My Strange Addiction"
                         },
                         new
@@ -111,7 +171,6 @@ namespace music_manager_start.Data.Migrations
                             Artist = "Billie Eilish",
                             FilePath = "/images/be2.png",
                             Genre = "Pop",
-                            Rating = 10,
                             Title = "Birds Of A Feather"
                         },
                         new
@@ -121,7 +180,6 @@ namespace music_manager_start.Data.Migrations
                             Artist = "Billie Eilish",
                             FilePath = "/images/be2.png",
                             Genre = "Pop",
-                            Rating = 10,
                             Title = "The Greatest"
                         });
                 });

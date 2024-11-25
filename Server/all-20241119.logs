@@ -44,3 +44,9 @@ System.InvalidOperationException: An exception was thrown while attempting to ev
    at music_manager_starter.Server.Controllers.SongsController.GetSongDetails(String id) in C:\Users\jeff\myfiles\code_personal\saberin_OA\main\server\Controllers\SongController.cs:line 42
 2024-11-19 18:15:25.767 -05:00 [ERR] Song not found for ID: 42e4b4d5-93bb
 2024-11-19 18:15:49.682 -05:00 [INF] GetSongDetails: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-19 18:25:41.167 -05:00 [INF] GetSongDetails: dd906bcb-12b7-4cb1-9231-603d4f544390
+2024-11-19 18:25:45.216 -05:00 [INF] GetSongDetails: 22aa6f84-06d8-4a0e-bdad-3000b35b5b5f
+2024-11-19 18:25:48.752 -05:00 [INF] GetSongDetails: b7cc1c82-77e2-40d0-8bc2-d7e05962c0e3
+2024-11-19 18:26:02.030 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-19 18:26:07.658 -05:00 [INF] GetSongDetails: 42e4b4d5-93bb-4e46-bb6e-c57de62e7f6e
+2024-11-19 18:26:56.425 -05:00 [INF] Post Request Song: {"Id":"00000000-0000-0000-0000-000000000000","Title":"car","Artist":"car","Album":"car","Genre":"car","Rating":0,"FilePath":"/images/pb.png","FileBytes":"89504E470D0A1A0A0000000D49484452... (422577 bytes)","FileExtension":".png","$type":"Song"}

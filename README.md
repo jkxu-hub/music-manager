@@ -1,6 +1,6 @@
-# Getting Started #
+# Music Manager #
 
-This solution contains an easy to use and simple music manager.
+An easy to use and simple music manager containing features for song uploads, song viewing, and search. Logging is done with serilog.
 
 ## Technologies
 - Visual Studio 2022 
